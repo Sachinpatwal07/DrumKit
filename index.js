@@ -12,17 +12,18 @@ var N = new Audio("sounds/crash.mp3");
 
 var L = new Audio("sounds/tom-2.mp3");
 
-for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
 
-document.querySelectorAll(".drum")[i].addEventListener("click", function() {
 
+$(".drum").on("click", function() {
+
+ console.log("hello");
   soundPlayer(this.innerHTML);
 
   annimation(this.innerHTML);
 
-});
+})
 
-document.addEventListener("keypress", function(event) {
+$(document).on("keypress", function(event) {
 
   soundPlayer(event.key);
 
@@ -72,11 +73,10 @@ function soundPlayer(a) {
 
 function annimation(key) {
 
-var z = document.querySelector("." + key);
+var z =$("." + key);
 
-  z.classList.add("pressed");
+  z.addClass("pressed");
 
-  setTimeout(function() { z.classList.remove("pressed");}, 100);
+  setTimeout(function() { z.removeClass("pressed");}, 100);
 
-}
 }
